@@ -19,9 +19,9 @@ export default function ComparisonTab() {
   }, [selected])
 
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12">
-      <div className="mb-8 p-6 bg-white border border-gray-200 rounded-lg">
-        <h3 className="font-semibold text-gray-800 mb-4">Select States/UTs to Compare</h3>
+    <main className="space-y-8">
+      <div className="card p-6">
+        <h3 className="font-semibold text-neutral-800 mb-4">Select States/UTs to Compare</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {states.map(state => (
             <button
@@ -33,10 +33,10 @@ export default function ComparisonTab() {
                   setSelected([...selected, state])
                 }
               }}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                 selected.includes(state)
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-primary-600 text-white shadow-md'
+                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
               }`}
             >
               {state}
@@ -50,14 +50,21 @@ export default function ComparisonTab() {
           <ChartCard title="Quality Score Comparison">
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={comparisonData}>
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="name" />
                 <YAxis yAxisId="left" domain={[0, 10]} />
                 <YAxis yAxisId="right" orientation="right" domain={[0, 100]} />
-                <Tooltip />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'white', 
+                    borderRadius: '0.5rem', 
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                  }} 
+                />
                 <Legend />
-                <Bar yAxisId="left" dataKey="quality" fill="#3B82F6" name="Quality Score" />
-                <Bar yAxisId="right" dataKey="coverage" fill="#10B981" name="Coverage %" />
+                <Bar yAxisId="left" dataKey="quality" fill="#0ea5e9" name="Quality Score" radius={[4, 4, 0, 0]} />
+                <Bar yAxisId="right" dataKey="coverage" fill="#14b8a6" name="Coverage %" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </ChartCard>
@@ -65,11 +72,11 @@ export default function ComparisonTab() {
           <ChartCard title="Comparative Statistics">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-gray-100">
+                <thead className="bg-neutral-100">
                   <tr>
-                    <th className="px-4 py-2 text-left font-semibold">Metric</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-800">Metric</th>
                     {selected.map(state => (
-                      <th key={state} className="px-4 py-2 text-left font-semibold">{state}</th>
+                      <th key={state} className="px-4 py-3 text-left font-semibold text-neutral-800">{state}</th>
                     ))}
                   </tr>
                 </thead>
@@ -80,10 +87,10 @@ export default function ComparisonTab() {
                     { label: 'Total Roads (km)', key: 'totalRoads' },
                     { label: 'PMGSY Roads (km)', key: 'pmgsyRoads' }
                   ].map((metric, i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : ''}>
-                      <td className="px-4 py-2 font-medium text-gray-800">{metric.label}</td>
+                    <tr key={i} className={i % 2 === 0 ? 'bg-neutral-50' : ''}>
+                      <td className="px-4 py-3 font-medium text-neutral-800">{metric.label}</td>
                       {selected.map(state => (
-                        <td key={state} className="px-4 py-2 text-gray-700">
+                        <td key={state} className="px-4 py-3 text-neutral-700">
                           {stateWiseData[state][metric.key as keyof typeof stateWiseData[keyof typeof stateWiseData]].toLocaleString()}
                         </td>
                       ))}
@@ -96,8 +103,8 @@ export default function ComparisonTab() {
         </>
       ) : (
         <div className="text-center py-12">
-          <Filter size={48} className="mx-auto text-gray-400 mb-4" />
-          <p className="text-gray-600">Select at least 2 states/UTs to compare</p>
+          <Filter size={48} className="mx-auto text-neutral-400 mb-4" />
+          <p className="text-neutral-600">Select at least 2 states/UTs to compare</p>
         </div>
       )}
     </main>
