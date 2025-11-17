@@ -21,7 +21,7 @@ export default function ComparisonTab() {
   return (
     <main className="space-y-8">
       <div className="card p-6">
-        <h3 className="font-semibold text-neutral-800 mb-4">Select States/UTs to Compare</h3>
+        <h3 className="font-semibold text-gray-100 mb-4">Select States/UTs to Compare</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {states.map(state => (
             <button
@@ -35,8 +35,8 @@ export default function ComparisonTab() {
               }}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                 selected.includes(state)
-                  ? 'bg-primary-600 text-white shadow-md'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                  : 'bg-gray-700 text-gray-200 hover:bg-gray-600 border border-gray-500'
               }`}
             >
               {state}
@@ -50,16 +50,17 @@ export default function ComparisonTab() {
           <ChartCard title="Quality Score Comparison">
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={comparisonData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis dataKey="name" />
-                <YAxis yAxisId="left" domain={[0, 10]} />
-                <YAxis yAxisId="right" orientation="right" domain={[0, 100]} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                <XAxis dataKey="name" stroke="#9ca3af" />
+                <YAxis yAxisId="left" domain={[0, 10]} stroke="#9ca3af" />
+                <YAxis yAxisId="right" orientation="right" domain={[0, 100]} stroke="#9ca3af" />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'white', 
+                    backgroundColor: '#1f2937', 
                     borderRadius: '0.5rem', 
-                    border: '1px solid #e5e7eb',
-                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                    border: '1px solid #374151',
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    color: '#f9fafb'
                   }} 
                 />
                 <Legend />
@@ -72,11 +73,11 @@ export default function ComparisonTab() {
           <ChartCard title="Comparative Statistics">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-neutral-100">
+                <thead className="bg-gray-700">
                   <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-neutral-800">Metric</th>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-100">Metric</th>
                     {selected.map(state => (
-                      <th key={state} className="px-4 py-3 text-left font-semibold text-neutral-800">{state}</th>
+                      <th key={state} className="px-4 py-3 text-left font-semibold text-gray-100">{state}</th>
                     ))}
                   </tr>
                 </thead>
@@ -87,10 +88,10 @@ export default function ComparisonTab() {
                     { label: 'Total Roads (km)', key: 'totalRoads' },
                     { label: 'PMGSY Roads (km)', key: 'pmgsyRoads' }
                   ].map((metric, i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-neutral-50' : ''}>
-                      <td className="px-4 py-3 font-medium text-neutral-800">{metric.label}</td>
+                    <tr key={i} className={i % 2 === 0 ? 'bg-gray-700' : 'bg-gray-800'}>
+                      <td className="px-4 py-3 font-medium text-gray-100">{metric.label}</td>
                       {selected.map(state => (
-                        <td key={state} className="px-4 py-3 text-neutral-700">
+                        <td key={state} className="px-4 py-3 text-gray-300">
                           {stateWiseData[state][metric.key as keyof typeof stateWiseData[keyof typeof stateWiseData]].toLocaleString()}
                         </td>
                       ))}
@@ -103,8 +104,8 @@ export default function ComparisonTab() {
         </>
       ) : (
         <div className="text-center py-12">
-          <Filter size={48} className="mx-auto text-neutral-400 mb-4" />
-          <p className="text-neutral-600">Select at least 2 states/UTs to compare</p>
+          <Filter size={48} className="mx-auto text-gray-500 mb-4" />
+          <p className="text-gray-400">Select at least 2 states/UTs to compare</p>
         </div>
       )}
     </main>

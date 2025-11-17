@@ -17,15 +17,16 @@ export default function PoliciesTab() {
               }))
               .sort((a, b) => b.pmgsy - a.pmgsy)}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12 }} />
-            <YAxis />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12, fill: '#9ca3af' }} stroke="#374151" />
+            <YAxis stroke="#9ca3af" />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: 'white', 
+                backgroundColor: '#1f2937', 
                 borderRadius: '0.5rem', 
-                border: '1px solid #e5e7eb',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                border: '1px solid #374151',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                color: '#f9fafb'
               }} 
               formatter={(value) => [`${value} km`, 'Roads Constructed']}
             />
@@ -44,15 +45,16 @@ export default function PoliciesTab() {
               }))
               .sort((a, b) => b.investment - a.investment)}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12 }} />
-            <YAxis />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12, fill: '#9ca3af' }} stroke="#374151" />
+            <YAxis stroke="#9ca3af" />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: 'white', 
+                backgroundColor: '#1f2937', 
                 borderRadius: '0.5rem', 
-                border: '1px solid #e5e7eb',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                border: '1px solid #374151',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                color: '#f9fafb'
               }} 
               formatter={(value) => [`₹${value} Cr`, 'Investment']}
             />
@@ -63,52 +65,52 @@ export default function PoliciesTab() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="card p-6">
-          <h4 className="font-semibold text-neutral-800 mb-4">Pradhan Mantri Gram Sadak Yojana (PMGSY)</h4>
-          <ul className="space-y-2 text-sm text-neutral-700">
+          <h4 className="font-semibold text-gray-100 mb-4">Pradhan Mantri Gram Sadak Yojana (PMGSY)</h4>
+          <ul className="space-y-2 text-sm text-gray-300">
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>All-weather road connectivity to unconnected habitations</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>660,000+ km roads constructed since 2000</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>180+ million people benefited</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Focus on rural areas and remote regions</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Ongoing upgrades to PMGSY-II for asset management</span>
             </li>
           </ul>
         </div>
 
         <div className="card p-6">
-          <h4 className="font-semibold text-neutral-800 mb-4">Bharatmala Project</h4>
-          <ul className="space-y-2 text-sm text-neutral-700">
+          <h4 className="font-semibold text-gray-100 mb-4">Bharatmala Project</h4>
+          <ul className="space-y-2 text-sm text-gray-300">
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Develop 65,000 km of highways</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Multi-phase strategic road development</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Focus on national corridors and connectivity</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Reduce logistics costs by 5-7%</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">✓</span>
+              <span className="text-green-400 mr-2">✓</span>
               <span>Reduce travel time by 20-25%</span>
             </li>
           </ul>

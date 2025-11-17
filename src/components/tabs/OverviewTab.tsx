@@ -55,7 +55,15 @@ export default function OverviewTab() {
                   <Cell key={`cell-${index}`} fill={color} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value) => `${value}%`} />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: '#1f2937', 
+                  borderRadius: '0.5rem', 
+                  border: '1px solid #374151',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  color: '#f9fafb'
+                }} 
+              />
             </PieChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -63,15 +71,16 @@ export default function OverviewTab() {
         <ChartCard title="State-wise Quality Score Ranking">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={qualityRankingData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12 }} />
-              <YAxis domain={[0, 10]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+              <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12, fill: '#9ca3af' }} stroke="#374151" />
+              <YAxis domain={[0, 10]} stroke="#9ca3af" />
               <Tooltip 
                 contentStyle={{ 
-                  backgroundColor: 'white', 
+                  backgroundColor: '#1f2937', 
                   borderRadius: '0.5rem', 
-                  border: '1px solid #e5e7eb',
-                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                  border: '1px solid #374151',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  color: '#f9fafb'
                 }} 
               />
               <Bar dataKey="quality" fill="#0ea5e9" radius={[4, 4, 0, 0]} />
@@ -88,15 +97,16 @@ export default function OverviewTab() {
               coverage: stateWiseData[s].coverage
             })).sort((a, b) => b.coverage - a.coverage)}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12 }} />
-            <YAxis domain={[0, 100]} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <XAxis dataKey="state" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 12, fill: '#9ca3af' }} stroke="#374151" />
+            <YAxis domain={[0, 100]} stroke="#9ca3af" />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: 'white', 
+                backgroundColor: '#1f2937', 
                 borderRadius: '0.5rem', 
-                border: '1px solid #e5e7eb',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                border: '1px solid #374151',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                color: '#f9fafb'
               }} 
             />
             <Line 

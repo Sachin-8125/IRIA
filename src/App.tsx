@@ -20,10 +20,10 @@ function App() {
     return tabComponents[activeTab]
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 flex flex-col">
       <Header />
       <NavigationTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main className="flex-1 container mx-auto px-4 py-6">
+      <main className="flex-1 container mx-auto px-4 py-6 transition-all duration-300">
         {renderTab()}
       </main>
       <Footer />

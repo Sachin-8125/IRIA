@@ -9,8 +9,8 @@ export default function ChartCard({ title, description, children, className = ''
   return (
     <div className={`card p-6 ${className}`}>
       <div className="mb-6">
-        <h3 className="text-xl font-semibold text-neutral-800 mb-1">{title}</h3>
-        {description && <p className="text-neutral-600 text-sm">{description}</p>}
+        <h3 className="text-xl font-semibold text-gray-100 mb-1">{title}</h3>
+        {description && <p className="text-gray-400 text-sm">{description}</p>}
       </div>
       <div className="w-full overflow-x-auto">
         {children}
