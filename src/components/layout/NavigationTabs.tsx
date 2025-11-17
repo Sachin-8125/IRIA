@@ -1,13 +1,13 @@
 interface NavigationTabsProps{
-  activeTab: string
-  setActiveTab: (tab: string) => void
+  activeTab: 'overview' | 'statewise' | 'comparison' | 'policies'
+  setActiveTab: (tab: 'overview' | 'statewise' | 'comparison' | 'policies') => void
 }
 
 const tabs = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'statewise', label: 'State/UT Analysis' },
-  { id: 'comparison', label: 'Comparison' },
-  { id: 'policies', label: 'Policies' },
+  { id: 'overview' as const, label: 'Overview' },
+  { id: 'statewise' as const, label: 'State/UT Analysis' },
+  { id: 'comparison' as const, label: 'Comparison' },
+  { id: 'policies' as const, label: 'Policies' },
 ]
 
 export default function NavigationTabs({ activeTab, setActiveTab }: NavigationTabsProps){
